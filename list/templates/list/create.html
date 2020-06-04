@@ -1,0 +1,12 @@
+{% extends 'list/base.html' %}
+
+{% block title %} Ingresa Nueva Casa {% endblock %}
+
+{% block content %} 
+Crear Página
+
+<form action="post" action="/create/">
+    {{form}}
+    <button type="submit", name="save">Crear Casa</button>
+</form>
+{% endblock %}

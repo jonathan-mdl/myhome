@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import HomeList, Home
+from .forms import CreateNewList
 # Create your views here.
 
 def index(response, id):
@@ -9,3 +10,7 @@ def index(response, id):
 
 def home(response):
     return render(response, "list/home.html", {})
+
+def create(response):
+    form = CreateNewList()
+    return render(response, "list/create.html", {"form":form})
