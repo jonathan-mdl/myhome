@@ -3,9 +3,14 @@
 
 {% block content %}
     <h1>{{ls.name}}</h1>
-    <ul>
-    {% for home in ls.home_set.all %}
-        <li>{{home.commentary}}</li>
-    {% endfor %}
-    </ul>
+    <form method="post" action="#">
+        {% csrf_token %}
+        <ul>
+            {% for home in ls.home_set.all %}
+                <li>{{home.commentary}}</li>
+            {% endfor %}
+        </ul>
+        <input type="text", name="new">
+        <button type="submit", name="newHome", value="newHome">Nueva Casa</button>
+    </form>
 {% endblock %}

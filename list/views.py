@@ -6,6 +6,15 @@ from .forms import CreateNewList
 
 def index(response, id):
     ls = HomeList.objects.get(id=id)
+    
+    if response.POST.get("newHome"):
+        txt = response.POST.get("new")
+
+        if len(txt) > 2:
+            ls.home_set.create(commentary=txt)
+        else:
+            print("invalid")
+
     return render(response, "list/list.html", {"ls":ls})
 
 def home(response):
