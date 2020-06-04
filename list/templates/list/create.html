@@ -6,7 +6,8 @@
 Crear Página
 
 <form action="post" action="/create/">
-    {{form}}
+    {% csrf_token %}
+    {{form.as_p}}
     <button type="submit", name="save">Crear Casa</button>
 </form>
 {% endblock %}

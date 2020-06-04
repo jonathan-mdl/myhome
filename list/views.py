@@ -12,5 +12,13 @@ def home(response):
     return render(response, "list/home.html", {})
 
 def create(response):
-    form = CreateNewList()
+    if response.method == "POST":
+        form = CreateNewList(response.POST)
+
+        if form.is_valid():
+            n = form.cleaned_data["name"]
+            t = HomeList(name=n)
+            t.save()
+    else:
+        form = CreateNewList()
     return render(response, "list/create.html", {"form":form})
