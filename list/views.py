@@ -5,7 +5,7 @@ from .models import HomeList, Home
 
 def index(response, id):
     ls = HomeList.objects.get(id=id)
-    return render(response, "list/base.html", {})
+    return render(response, "list/list.html", {"ls":ls})
 
 def home(response):
     return render(response, "list/home.html", {})

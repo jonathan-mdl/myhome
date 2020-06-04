@@ -1,0 +1,11 @@
+{% extends "list/base.html" %}
+{% block title %}View List{% endblock %}
+
+{% block content %}
+    <h1>{{ls.name}}</h1>
+    <ul>
+    {% for home in ls.home_set.all %}
+        <li>{{home.commentary}}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
