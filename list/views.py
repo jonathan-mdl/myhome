@@ -3,8 +3,9 @@ from django.http import HttpResponse
 from .models import HomeList, Home
 # Create your views here.
 
-def index(response, name):
-    ls = HomeList.objects.get(name=name)
-    home = ls.home_set.get(id=1)
-    return HttpResponse("<h1>%s</h1><br><p>%s</p>" %(ls.name, str(home.commentary)))
+def index(response, id):
+    ls = HomeList.objects.get(id=id)
+    return render(response, "list/base.html", {})
 
+def home(response):
+    return render(response, "list/home.html", {})
